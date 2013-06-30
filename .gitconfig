@@ -8,7 +8,7 @@
 [color]
 	ui = always
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/tromano/.gitignore_global
 	attributesfile = ~/.gitattributes
 [color "branch"]
 	current = yellow reverse
@@ -42,3 +42,12 @@
 # http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules
 [url "git@github.com:paulirish/"]
   insteadOf = "git://github.com/paulirish/"
+[difftool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/diffmerge/4.2.0.697/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/diffmerge/4.2.0.697/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	trustExitCode = true
+[user]
+	name = Tom Romano
+	email = tom.romano@gmail.com
