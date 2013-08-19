@@ -40,8 +40,8 @@
 
 # Any GitHub repo with my username should be checked out r/w by default
 # http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules
-[url "git@github.com:paulirish/"]
-  insteadOf = "git://github.com/paulirish/"
+[url "git@github.com:dawogfather/"]
+  insteadOf = "git://github.com/dawogfather/"
 [difftool "sourcetree"]
 	cmd = /opt/homebrew-cask/Caskroom/diffmerge/4.2.0.697/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -51,3 +51,5 @@
 [user]
 	name = Tom Romano
 	email = tom.romano@gmail.com
+[help]
+	autocorrect = 1
