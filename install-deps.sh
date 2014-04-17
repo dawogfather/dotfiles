@@ -56,6 +56,8 @@ git clone git://github.com/jeroenbegyn/VLCControl.git
 # for the c alias (syntax highlighted cat)
 sudo easy_install Pygments
 
+# gvm tool to install groovy / grails etc
+curl -s get.gvmtool.net | bash
 
 # chrome canary as default
 # on a mac you can set chrome canary as your default inside of Safari preferences :)
