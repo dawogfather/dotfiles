@@ -40,7 +40,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 # set the /usr/local/bin first 
-# export PATH=/usr/local/bin:$PATH
+##export PATH=/usr/local/bin:$PATH
 
 # ant options
 export ANT_OPTS="-Xmx512m -XX:MaxPermSize=256m"

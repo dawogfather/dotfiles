@@ -81,4 +81,4 @@ source ~/code/z/z.sh
 [[ -s "/Users/tom.romano/.gvm/bin/gvm-init.sh" ]] && source "/Users/tom.romano/.gvm/bin/gvm-init.sh"
 
 # put usr local bin first...
-# export PATH=/usr/local/bin:$PATH
+##export PATH=/usr/local/bin:$PATH
