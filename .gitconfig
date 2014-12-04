@@ -58,3 +58,7 @@
 	email = tom.romano@gmail.com
 [help]
 	autocorrect = 1
+
+# push easily. http://stackoverflow.com/a/23918418/89484
+[push]
+	default = current
