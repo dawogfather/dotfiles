@@ -35,12 +35,16 @@ brew cask install webkit-nightly --force
 brew cask install chromium --force
 brew cask install torbrowser
 
-# less often
+# other
 brew cask install disk-inventory-x
 brew cask install screenflow4 # 4 specifically not 5.
 brew cask install vlc
 brew cask install keycastr  
-
+brew cask install dash
+brew cask install macdown
+brew cask install caffeine
+brew cask install cyberduck
+brew cask install slack
 
 # Not on cask but I want regardless.
 
