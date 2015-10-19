@@ -46,6 +46,10 @@ chmod +x ~/code/z/z.sh
 cd ~/code
 git clone https://github.com/thebitguru/play-button-itunes-patch
 
+# https://github.com/dronir/SpotifyControl
+# control spotify cmd line
+cd ~/code 
+git clone https://github.com/dronir/SpotifyControl
 
 # my magic photobooth symlink -> dropbox. I love it.
 # + first move Photo Booth folder out of Pictures
