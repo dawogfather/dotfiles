@@ -77,5 +77,11 @@ shopt -s cdspell;
 #   github.com/rupa/z
 source ~/code/z/z.sh
 
-#add gvm support                                                                                                                                                                                        
-[[ -s "/Users/tom.romano/.gvm/bin/gvm-init.sh" ]] && source "/Users/tom.romano/.gvm/bin/gvm-init.sh"
+#add rvm support                                                                                                                                                                                        
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+#add sdkman support
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="~/.sdkman"
+[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
