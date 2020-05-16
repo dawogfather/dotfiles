@@ -1,4 +1,4 @@
-# Make vim the default editor
+# vim as default
 export EDITOR="vim"
 
 # Don’t clear the screen after quitting a manual page
@@ -8,11 +8,7 @@ export MANPAGER="less -X"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
-# Larger bash history (allow 32³ entries; default is 500)
-export HISTSIZE=32768
-export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
-
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # timestamps for bash history. www.debian-administration.org/users/rossen/weblog/1
 # saved for later analysis
 export HISTTIMEFORMAT='%F %T '
@@ -28,6 +24,10 @@ export HISTTIMEFORMAT='%F %T '
 #export MAVEN_HOME=/usr/local/Cellar/maven/3.2.1/libexec
 #export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
 
+# here's LS_COLORS
+# github.com/trapd00r/LS_COLORS
+command -v gdircolors >/dev/null 2>&1 || alias gdircolors="dircolors"
+eval "$(gdircolors -b ~/.dircolors)"
 # fixes issues with xcode 5.1 and compiling native extensions
 export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
 
