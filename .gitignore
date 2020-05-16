@@ -1,14 +1,18 @@
+*-chrome-mac.zip
+third_party/WebKit/Source/devtools/front_end/audits2/lighthouse/renderer/logger.js
+third_party/WebKit/Source/devtools/front_end/audits2/lighthouse/renderer/report-ui-features.js
 
 # working files
 .vim/viminfo
 .vim/swaps/*
 .vim/undo
 
-# git credential file 
+# git credential file
 .gitconfig.local
 
 
-
+# no thx
+node_modules
 
 # Folder view configuration files
 .DS_Store
@@ -24,3 +28,13 @@ Thumbs.db
 
 # Compiled Python files
 *.pyc
+
+# fish shell
+fishd.*
+fish/config.fish.backup
+.config/fish/fish_history
+fish/fish_history
+fish/fish_variables
+
+# random
+shilocation

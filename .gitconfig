@@ -1,8 +1,12 @@
 [alias]
 	c = commit -am
-	up = pull
-	p = push
-	s = status -s
+	fpush = push --force
+	s = status
+	sclone = clone --depth=1
+	amend = commit --amend --all
+	undocommit = reset HEAD~
+	hreset = reset --hard
+	co = checkout
 	df = diff --color --color-words --abbrev
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
@@ -29,68 +33,83 @@
 [core]
 	excludesfile = /Users/tromano/.gitignore_global
 	attributesfile = ~/.gitattributes
+	precomposeUnicode = true
+
+[pager]
+	# insanely beautiful diffs ==> npm install -g diff-so-fancy
+	diff = diff-so-fancy | less --tabs=4 -RFX
+	show = diff-so-fancy | less --tabs=4 -RFX
+
+[interactive]
+  # disabled until github.com/so-fancy/diff-so-fancy/pull/172 is resolved :(
+	# diffFilter = "diff-so-fancy"
+
+# so much color
+[color]
+	ui = auto
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+    newMoved = cyan
+    oldMoved = blue
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
 [color "branch"]
 	current = yellow reverse
 	local = yellow
 	remote = green
-[color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
 [color "status"]
 	added = yellow
 	changed = green
 	untracked = cyan
+
+# git mergetool
 [merge]
-    tool = opendiff
+	tool = opendiff
+	renameLimit = 0
 
 
-# rewrites
-[url "git@github.com:"]
-	insteadOf = "gh:"
-	insteadOf = "git://github.com"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
-    pushInsteadOf = "https://github.com/"
-[url "git@gist.github.com:"]
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-	pushInsteadOf = "https://gist.github.com/"
+	
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
 
-
-# Any GitHub repo with my username should be checked out r/w by default
-# http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules
-[url "git@github.com:dawogfather/"]
-  insteadOf = "git://github.com/dawogfather/"
-[difftool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/diffmerge/4.2.0.697/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/diffmerge/4.2.0.697/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
-	trustExitCode = true
-[user]
-	name = Tom Romano
-	email = tom.romano@gmail.com
+# correct typos
 [help]
 	autocorrect = 1
 
 # push easily. http://stackoverflow.com/a/23918418/89484
 [push]
 	default = current
+	followTags = true
 
-
-
+# use separate file for username / github token / etc
 [include]
-  # For username / github token / etc
   path = ~/.gitconfig.local
-[user]
-	name = Tom Romano
-	email = tom.romano@gmail.com
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+
+#[init]
+#	templatedir = ~/.git_template
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
+[fetch]
+	prune = true
+[diff]
+    # Show blocks of moved text of at least 20 alphanumeric characters differently than adds/deletes
+    # https://blog.github.com/2018-04-05-git-217-released/
+    colorMoved = zebra
+
+[stash]
+	showPatch = true
+[log]
+	date = relative
+
