@@ -22,6 +22,15 @@ alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.c
 
 alias ag='ag -f --hidden'
 
+# java things
+alias java_ls='/usr/libexec/java_home -V 2>&1 | grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
+
+alias ll='ls -ltas'
+
+# `cat` with beautiful colors. requires Pygments installed.
+# 							   sudo easy_install -U Pygments
+alias c='pygmentize -O style=monokai -f console256 -g'
+
 ###
 # time to upgrade `ls`
 

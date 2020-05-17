@@ -5,12 +5,57 @@ export EDITOR="vim"
 export MANPAGER="less -X"
 
 # Prefer US English and use UTF-8
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US"
+export LC_ALL="en_AU.UTF-8"
+export LANG="en_AU"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# timestamps for bash history. www.debian-administration.org/users/rossen/weblog/1
+# saved for later analysis
+export HISTTIMEFORMAT='%F %T '
+
+
+# set the /usr/local/bin first 
+#export PATH=/usr/local/bin:$PATH
+
+# ant options
+#export ANT_OPTS="-Xmx512m -XX:MaxPermSize=256m"
+
+# maven options
+#export MAVEN_HOME=/usr/local/Cellar/maven/3.2.1/libexec
+#export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
+
 
 # here's LS_COLORS
 # github.com/trapd00r/LS_COLORS
 command -v gdircolors >/dev/null 2>&1 || alias gdircolors="dircolors"
 eval "$(gdircolors -b ~/.dircolors)"
+
+# fixes issues with xcode 5.1 and compiling native extensions
+export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
+
+# some oracle client things
+#export DYLD_LIBRARY_PATH=/usr/share/oracle/instantclient10_2
+#export SQLPATH=$DYLD_LIBRARY_PATH
+#export TNS_ADMIN=$DYLD_LIBRARY_PATHexport HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+# Make some commands not show up in history
+export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+
+# set the /usr/local/bin first 
+##export PATH=/usr/local/bin:$PATH
+
+# ant options
+export ANT_OPTS="-Xmx512m -XX:MaxPermSize=256m"
+
+# maven options
+export MAVEN_HOME=/usr/local/Cellar/maven/3.2.1/libexec
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
+
+# fixes issues with xcode 5.1 and compiling native extensions
+export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
+
+# some oracle client things
+#export DYLD_LIBRARY_PATH=/usr/share/oracle/instantclient10_2
+#export SQLPATH=$DYLD_LIBRARY_PATH
+#export TNS_ADMIN=$DYLD_LIBRARY_PATH

@@ -168,9 +168,28 @@ webmify(){
 # direct it all to /dev/null
 function nullify() {
   "$@" >/dev/null 2>&1
+}
 
 # `shellswitch [bash |zsh]`
 #   Must be in /etc/shells
 shellswitch () {
 	chsh -s $(brew --prefix)/bin/$1
+}
+
+# allows for quick JAVA HOME changes
+function java_use() {
+    export JAVA_HOME=$(/usr/libexec/java_home -v $1)
+    export PATH=$JAVA_HOME/bin:$PATH
+    java -version
+}
+
+# Syntax-highlight JSON strings or files
+json() {
+	if [ -p /dev/stdin ]; then
+		# piping, e.g. `echo '{"foo":42}' | json`
+		python -mjson.tool | pygmentize -l javascript
+	else
+		# e.g. `json '{"foo":42}'`
+		python -mjson.tool <<< "$*" | pygmentize -l javascript
+	fi
 }
