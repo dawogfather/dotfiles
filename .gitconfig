@@ -9,24 +9,29 @@
 	co = checkout
 	df = diff --color --color-words --abbrev
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	cherrypick = cherry-pick
-	cherry = cherry-pick
-	cp = cherry-pick
-
-	# show commit log of unique commits of this branch (not on master)
-	diffcommitsfrommaster = log --no-merges master..
-	# show unified diff of unique commits of this branch
-	difffrommaster = diff master...
-	# ^^^^ Holy crap two dots vs three dots, so important. https://stackoverflow.com/a/48681527
 
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
-	reup = rebase-update # depot_tools specific
-	git = !exec git
+	# Merge GitHub pull request on top of the `master` branch
+	mpr = "!f() { \
+		if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
+			git fetch origin refs/pull/$1/head:pr/$1 && \
+			git rebase master pr/$1 && \
+			git checkout master && \
+			git merge pr/$1 && \
+			git branch -D pr/$1 && \
+			git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
+		fi \
+	}; f"
+
+
+
+[color]
+	ui = always
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/tromano/.gitignore_global
 	attributesfile = ~/.gitattributes
 	precomposeUnicode = true
 

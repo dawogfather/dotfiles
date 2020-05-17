@@ -1,32 +1,15 @@
 # This prompt inspired by gf3, sindresorhus, alrra, and mathiasbynens.
 # but customized to me. <3
 
-default_username='paulirish'
-
-
-if which thefuck > /dev/null; then
-    eval "$(thefuck --alias)"
-fi;
-
-# Automatically trim long paths in the prompt (requires Bash 4.x)
-PROMPT_DIRTRIM=2
-
-if [[ -n "$ZSH_VERSION" ]]; then  # quit now if in zsh
-    return 1 2> /dev/null || exit 1;
-fi;
+default_username='tom.romano'
 
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-    export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
-    export TERM=xterm-256color
 fi
 
 
-set_prompts() {
 
-    local black="" blue="" bold="" cyan="" green="" orange="" \
-          purple="" red="" reset="" white="" yellow=""
 
     local dateCmd=""
 

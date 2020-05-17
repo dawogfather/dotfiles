@@ -1,8 +1,9 @@
-# Paul's dotfiles
+# Tom's dotfiles.
+Taken from Paul Irish's dotfiles...
 
 * I maintain this repo as *my* dotfiles, but I'm keenly aware people are using it for theirs.
 * You're quite welcome to make suggestions, however I may decline if it's not of personal value to me.
-* If you're starting off consider forking [mathias](https://github.com/mathiasbynens/dotfiles/) or [alrra](https://github.com/alrra/dotfiles/). [paulmillr](https://github.com/paulmillr/dotfiles) and [gf3](https://github.com/gf3/dotfiles) also have great setups
+* If you're starting off consider forking [mathias](https://github.com/mathiasbynens/dotfiles/) or [alrra](https://github.com/alrra/dotfiles/). paulmillr and gf3 also have great setups
 
 ## Setup
 #### installing & using
@@ -19,9 +20,10 @@
 * commit/push changes you want.
 * you can also hypothetically cherry-pick commits from me and mathias and our fork ecosystem.
 
-#### shell
+
 
 This repo contains config for bash, zsh, and fish. As of March 2016, I'm using fish shell mostly, but fall back to bash once in a while. The bash and fish stuff are both well maintained; zsh, less so. If you're using fish you'll want to do a `git submodule update --init`.
+
 
 
 ## my favorite parts.

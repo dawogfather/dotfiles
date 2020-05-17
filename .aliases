@@ -19,6 +19,8 @@ alias where=which # sometimes i forget
 alias brwe=brew  #typos
 
 alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
+# java things
+alias java_ls='/usr/libexec/java_home -V 2>&1 | grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
 
 alias ag='ag -f --hidden'
 
@@ -38,7 +40,11 @@ alias lsd='ls -l | grep "^d"' # only directories
 #    `la` defined in .functions
 ###
 
+alias ll='ls -ltas'
 
+# `cat` with beautiful colors. requires Pygments installed.
+# 							   sudo easy_install -U Pygments
+alias c='pygmentize -O style=monokai -f console256 -g'
 
 ###
 # GIT STUFF
@@ -57,11 +63,34 @@ alias undopush="git push -f origin HEAD^:master"
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
 alias master="git checkout master"
 
-# Networking. IP address, dig, DNS
+
+
+# IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-# alias dig="dig +nocmd any +multiline +noall +answer"
-# wget sucks with certificates. Let's keep it simple.
-alias wget="curl -O"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# All the dig info
+alias dig="dig +nocmd any +multiline +noall +answer"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache"
+
+# Flush in mountain lion
+alias flushML="sudo killall -HUP mDNSResponder"
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# Canonical hex dump; some systems have this symlinked
+type -t hd > /dev/null || alias hd="hexdump -C"
+
+# OS X has no `md5sum`, so use `md5` as a fallback
+type -t md5sum > /dev/null || alias md5sum="md5"
+
+# Trim new lines and copy to clipboard
+alias trimcopy="tr -d '\n' | pbcopy"
 
 # Recursively delete `.DS_Store` files
 alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"

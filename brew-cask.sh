@@ -42,6 +42,12 @@ brew cask install screenflow
 brew cask install vlc
 brew cask install gpgtools
 brew cask install licecap
+brew cask install keycastr  
+brew cask install dash
+brew cask install macdown
+brew cask install caffeine
+brew cask install cyberduck
+brew cask install slack
 # brew cask install utorrent
 
 brew cask install spotify
